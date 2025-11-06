@@ -3,7 +3,8 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/whoruv.svg)](https://pypi.org/project/whoruv)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/whoruv.svg)
 ![Last Commit](https://img.shields.io/github/last-commit/heiwa4126/whoruv)
-[![PyPI - License](https://img.shields.io/pypi/l/whoruv.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 English | [日本語](https://github.com/heiwa4126/whoruv/blob/main/README-ja.md)
 
