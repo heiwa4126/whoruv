@@ -83,8 +83,8 @@ poe format
 # 型チェック
 poe mypy
 
-# 全チェック実行
-poe before
+# 全チェック実行&ビルド&スモークテスト
+poe build
 ```
 
 ### 開発要件

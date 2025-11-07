@@ -77,8 +77,8 @@ poe format
 # Type check
 poe mypy
 
-# Run all checks
-poe before
+# Run all checks & build & smoke test
+poe build
 ```
 
 ### Development Requirements
