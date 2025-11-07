@@ -31,7 +31,7 @@ jobs:
         id: build
         run: |
           # uv build
-          poe build
+          uv run poe build
           echo "package-built=true" >> "$GITHUB_OUTPUT"
 
       # # Verify that the built packages work correctly
