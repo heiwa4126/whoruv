@@ -31,8 +31,12 @@ jobs:
         id: build
         run: |
           # uv build
-          uv run poe build
-          echo "package-built=true" >> "$GITHUB_OUTPUT"
+          if uv run poe build; then
+            echo "package-built=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "package-built=false" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
 
       # # Verify that the built packages work correctly
       # - name: Test wheel installation
