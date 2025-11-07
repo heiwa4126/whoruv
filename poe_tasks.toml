@@ -23,6 +23,7 @@ smoketest = ["smoke1", "smoke2"]
 # ======== lint
 check = "ruff check ./src"
 mypy = "mypy src"
+pep440check = "pep440check"
 pyprojectlint = "validate-pyproject pyproject.toml"
 actionlint = "actionlint"
 
@@ -32,6 +33,7 @@ pack = "uv build"
 
 # ======== build
 build = [
+  "pep440check",
   "check",
   # "format",
   "mypy",

@@ -1,10 +1,10 @@
 [project]
 name = "whoruv"
 version = "0.0.3"
-# バージョンは uv が
+# uv automatically converts versions to either:
 # - Regular releases: e.g. v1.2.3
 # - Pre-releases: e.g. v1.2.3rc1, v1.2.3b1, v1.2.3a1 (PEP 440 format)
-# のどちらかに強制変換するので、最初からこれにしておくこと
+# So use PEP 440 format from the beginning
 description = "Display Python version, executable path, and script path when run with uv"
 keywords = ["uv", "python", "version", "path", "tool"]
 classifiers = [
@@ -36,6 +36,7 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
   "mypy>=1.18.1",
+  "pep440check>=0.0.1",
   "poethepoet>=0.37.0",
   "pytest>=8.4.2",
   "ruff>=0.13.0",
