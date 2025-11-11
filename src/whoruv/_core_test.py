@@ -1,6 +1,8 @@
-import sys
 import os
-from whoruv import whoruv, PythonInfo, format_python_info
+import sys
+
+from whoruv import PythonInfo, whoruv
+from whoruv._core import format_python_info
 
 
 def test_whoruv():

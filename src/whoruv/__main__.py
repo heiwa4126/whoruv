@@ -1,4 +1,4 @@
-from whoruv.whoruv import whoruv, format_python_info
+from ._core import whoruv, format_python_info
 
 
 def main() -> None:
