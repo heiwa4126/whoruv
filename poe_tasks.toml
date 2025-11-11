@@ -27,18 +27,18 @@ pep440check = "pep440check"
 pyprojectlint = "validate-pyproject pyproject.toml"
 actionlint = "actionlint"
 
+lint = ["pep440check","check","mypy","pyprojectlint"]
+"lint-full" = ["lint","actionlint"]
+
 # ======== build
 clean = "rm -rf dist"
 pack = "uv build"
 
 # ======== build
 build = [
-  "pep440check",
-  "check",
+  "lint",
   # "format",
-  "mypy",
   "tests",
-  "pyprojectlint",
   # "actionlint",
   "clean",
   "pack",

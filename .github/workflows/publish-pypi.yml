@@ -10,6 +10,7 @@ on:
 jobs:
   build:
     name: Build package
+    if: github.repository_owner == github.actor
     uses: ./.github/workflows/build-package.yml
 
   publish-pypi:
