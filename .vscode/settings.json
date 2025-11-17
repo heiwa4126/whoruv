@@ -6,6 +6,8 @@
 		"rhysd",
 		"shunsuke",
 		"Sigstore",
-		"testpypi"
+		"smoketest",
+		"testpypi",
+		"whoruv"
 	]
 }
