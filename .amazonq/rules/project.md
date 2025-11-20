@@ -7,6 +7,7 @@
 - Target Python version: >=3.10
 - Build system: uv_build
 - License: MIT
+- Command line interface with argparse for --help and --version options
 
 ## Code Style
 
@@ -14,6 +15,8 @@
 - Keep functions minimal and focused
 - Follow Python naming conventions
 - Use type hints where appropriate
+- Use argparse for command line interface
+- Main entry point in __main__.py with argument parsing
 
 ## Testing
 

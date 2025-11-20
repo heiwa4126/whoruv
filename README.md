@@ -19,6 +19,8 @@ Created to understand the effects of uv's `--python` option.
 
 ## Usage Examples
 
+### Basic Usage
+
 ```console
 $ uvx whoruv
 
@@ -54,6 +56,22 @@ Installed 1 executable: whoruv
 Python Version: 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0]
 Executable Path: /home/user1/.local/share/uv/tools/whoruv/bin/python
 Script Path: /home/user1/.local/share/uv/tools/whoruv/lib/python3.10/site-packages/whoruv/whoruv.py
+```
+
+### Command Line Options
+
+```console
+$ whoruv --help
+usage: whoruv [-h] [-V]
+
+Display Python version, executable path, and script path
+
+options:
+  -h, --help     show this help message and exit
+  -V, --version  show program's version number and exit
+
+$ whoruv --version
+whoruv v0.0.1
 ```
 
 ## Development
