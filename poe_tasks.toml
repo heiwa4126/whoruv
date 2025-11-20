@@ -9,25 +9,25 @@ TRIVY_IGNORE = "--skip-dirs ./tmp,./xml"
 SHELL = "bash"
 
 [tasks]
-main = "whoruv"
+cli = "whoruv"
 
 # ======== tests
 test = "pytest -v --tb=short src"
 tests = ["test"]
 
 # ======== smoke tests
-smoke1 = "uv run --isolated --no-project --refresh --with dist/*.whl whoruv"
-smoke2 = "uv run --isolated --no-project --refresh --with dist/*.tar.gz whoruv"
-smoketest = ["smoke1", "smoke2"]
+smoke1 = "uv run --isolated --no-project --refresh --no-cache --with dist/*.whl whoruv"
+smoke2 = "uv run --isolated --no-project --refresh --no-cache --with dist/*.tar.gz whoruv"
+smoke-test = ["smoke1", "smoke2"]
 
 # ======== lint
 check = "ruff check ./src"
 mypy = "mypy src"
 pep440check = "pep440check"
-pyprojectlint = "validate-pyproject pyproject.toml"
+pyproject-lint = "validate-pyproject pyproject.toml"
 actionlint = "actionlint"
 
-lint = ["pep440check", "check", "mypy", "pyprojectlint"]
+lint = ["pep440check", "check", "mypy", "pyproject-lint"]
 "lint-full" = ["lint", "actionlint"]
 
 # ======== build
@@ -43,7 +43,7 @@ build = [
   # "actionlint",
   "clean",
   "pack",
-  "smoketest",
+  "smoke-test",
 ]
 
 # ======== utils

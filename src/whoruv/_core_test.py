@@ -1,8 +1,8 @@
 import os
 import sys
 
-from whoruv import PythonInfo, whoruv
-from whoruv._core import format_python_info
+from . import PythonInfo, whoruv
+from ._core import format_python_info
 
 
 def test_whoruv():

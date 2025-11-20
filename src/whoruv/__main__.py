@@ -1,5 +1,5 @@
-from whoruv import __version__
-from whoruv._core import format_python_info, whoruv
+from . import __version__
+from ._core import format_python_info, whoruv
 
 
 def main() -> None:
