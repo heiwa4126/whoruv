@@ -24,8 +24,15 @@ jobs:
           enable-cache: true
       # Note: v6 may cause issues with nektos/act due to missing shims
 
-      - name: Set up Python environment
+      - name: Set up Python environment (default)
         run: uv python install
+      - name: Set up Python environment (3.10)
+        run: uv python install 3.10
+
+      - name: Configure Git for tests
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
 
       - name: Build distribution packages
         id: build
@@ -40,10 +47,10 @@ jobs:
 
       # # Verify that the built packages work correctly
       # - name: Test wheel installation
-      #   run: uv run --isolated --no-project --with dist/*.whl whoruv
+      #   run: uv run --isolated --no-project --with dist/*.whl bumpuv
 
       # - name: Test source distribution installation
-      #   run: uv run --isolated --no-project --with dist/*.tar.gz whoruv
+      #   run: uv run --isolated --no-project --with dist/*.tar.gz bumpuv
 
       - name: Upload built packages as artifact
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
