@@ -41,6 +41,7 @@ dev = [
   "poethepoet>=0.37.0",
   "pytest>=8.4.2",
   "ruff>=0.13.0",
+  "uv-secure>=0.10.1",
   "validate-pyproject>=0.24.1",
 ]
 

@@ -14,6 +14,7 @@ cli = "whoruv"
 # ======== tests
 test = "pytest -v --tb=short src"
 tests = ["test"]
+audit = "uv-secure ./uv.lock"
 
 # ======== smoke tests
 smoke1 = "uv run --isolated --no-project --refresh --no-cache --with dist/*.whl whoruv"
