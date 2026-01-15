@@ -25,9 +25,9 @@ jobs:
         with:
           enable-cache: true
 
-      - name: audit dependencies
+      - name: Audit dependencies
         run: uvx uv-secure ./uv.lock
-        ## パッケージのインストールと、.venvの作成はされないはず...
+        ## このパッケージの依存のインストールと、.venvの作成はされないはず...
 
       - name: Set up Python environment (default)
         run: uv python install
