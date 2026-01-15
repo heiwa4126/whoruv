@@ -27,16 +27,16 @@ jobs:
 
       - name: audit dependencies
         run: uvx uv-secure ./uv.lock
-        ## ↑で副作用として ./.python-version のpythonがインストールされるはず
-        ## ただしパッケージのインストールと、.venvの作成はされないはず
+        ## パッケージのインストールと、.venvの作成はされないはず...
+
+      - name: Set up Python environment (default)
+        run: uv python install
 
       - name: "INFO: Python and uv version"
         run: |
           uv run python --version
           uv --version
 
-      # - name: Set up Python environment (default)
-      #   run: uv python install
       # - name: Set up Python environment (3.10)
       #   run: uv python install 3.10
 
