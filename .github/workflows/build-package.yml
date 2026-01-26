@@ -27,7 +27,7 @@ jobs:
 
       - name: Audit dependencies
         run: uvx uv-secure ./uv.lock
-        ## このパッケージの依存のインストールと、.venvの作成はされないはず...
+        ## パッケージ依存のインストールや.venvの作成はされないはず...
 
       - name: Set up Python environment (default)
         run: uv python install
