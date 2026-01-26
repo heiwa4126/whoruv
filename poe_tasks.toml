@@ -25,11 +25,12 @@ smoke-test = ["smoke1", "smoke2"]
 check = "ruff check ./src"
 mypy = "mypy src"
 pep440check = "pep440check"
-pyproject-lint = "validate-pyproject pyproject.toml"
-actionlint = "actionlint"
+lint-pyproject = "validate-pyproject pyproject.toml"
+lint-workflows = "actionlint"
+lint-actions.shell = "find -name action.yml -o -name action.yaml | xargs -r action-validator -v"
 
-lint = ["pep440check", "check", "mypy", "pyproject-lint"]
-"lint-full" = ["lint", "actionlint"]
+lint = ["pep440check", "check", "mypy", "lint-pyproject"]
+lint-full = ["lint", "lint-workflows", "lint-actions"]
 
 # ======== build
 # clean = "rm -rf dist"
