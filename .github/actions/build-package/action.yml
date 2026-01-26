@@ -13,7 +13,7 @@ runs:
       shell: bash
       run: uvx uv-secure ./uv.lock
 
-    - name: Set up Python environment (default)
+    - name: Set up Python (uv respects ./.python-version)
       shell: bash
       run: uv python install
 
