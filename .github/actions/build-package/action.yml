@@ -1,0 +1,35 @@
+name: Build # アクション名
+description: | # アクションの概要
+  パッケージをビルドします。uses: するまえに actions/checkout してください
+
+runs:
+  using: composite
+  steps:
+    - name: Set up uv
+      uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
+      with:
+        enable-cache: true
+
+    - name: Audit dependencies
+      shell: bash
+      run: uvx uv-secure ./uv.lock
+
+    - name: Set up Python environment (default)
+      shell: bash
+      run: uv python install
+
+    - name: "INFO: Python and uv version"
+      shell: bash
+      run: |
+        uv run python --version
+        uv --version
+
+    - name: Build distribution packages
+      shell: bash
+      run: |
+        if uv run poe build; then
+          echo "package_built=true" >> "${GITHUB_ENV}"
+        else
+          echo "package_built=false" >> "${GITHUB_ENV}"
+          exit 1
+        fi

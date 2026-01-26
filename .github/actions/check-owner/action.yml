@@ -1,0 +1,12 @@
+name: Check Repository Owner
+description: Fails if the workflow is not triggered by the repository owner
+runs:
+  using: composite
+  steps:
+    - name: Check repository owner
+      shell: bash
+      run: |
+        if [ "${{ github.repository_owner }}" != "${{ github.actor }}" ]; then
+          echo "Error: Only repository owner can trigger this workflow"
+          exit 1
+        fi
