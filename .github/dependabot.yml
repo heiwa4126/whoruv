@@ -13,3 +13,15 @@ updates:
       all-dependencies:
         patterns:
           - "*"
+  - package-ecosystem: github-actions
+    directory: / # GitHub Actions のみ固定で"/"
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-patch
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
