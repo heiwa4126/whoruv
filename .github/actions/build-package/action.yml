@@ -1,6 +1,5 @@
-name: Build # アクション名
-description: | # アクションの概要
-  パッケージをビルドします。uses: するまえに actions/checkout してください
+name: Build
+description: パッケージを ./dist にビルドします
 
 runs:
   using: composite
@@ -21,15 +20,11 @@ runs:
     - name: "INFO: Python and uv version"
       shell: bash
       run: |
+        echo "::group::Show Python and uv version"
         uv run python --version
         uv --version
+        echo "::endgroup::"
 
     - name: Build distribution packages
       shell: bash
-      run: |
-        if uv run poe build; then
-          echo "package_built=true" >> "${GITHUB_ENV}"
-        else
-          echo "package_built=false" >> "${GITHUB_ENV}"
-          exit 1
-        fi
+      run: uv run poe build
