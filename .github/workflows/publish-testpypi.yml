@@ -10,14 +10,13 @@ jobs:
   publish-testpypi:
     name: Publish to TestPyPI
     runs-on: ubuntu-latest
+    if: github.repository_owner == github.actor
     environment: testpypi
     permissions:
       id-token: write # IMPORTANT: this permission is mandatory for Trusted Publishing
       contents: read
 
     steps:
-      - uses: ./.github/actions/check-owner
-
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
