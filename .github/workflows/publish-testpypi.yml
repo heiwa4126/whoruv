@@ -23,3 +23,5 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == github.actor
     environment: testpypi
+    steps:
+      - run: echo "Publishing to TestPyPI..."
