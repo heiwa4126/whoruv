@@ -22,7 +22,6 @@ jobs:
 
     steps:
       - name: Build package
-        # uses: ./.github/actions/build-uv-package
         uses: heiwa4126/reusable-workflows/build-uv-package@63181b74582de22141f79c494ffa3aae54ac2370 # v0.0.1
         with:
           checkout: true
