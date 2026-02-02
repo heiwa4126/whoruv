@@ -18,6 +18,9 @@ defaults:
 
 jobs:
   publish-pypi:
+    # 再利用可能なワークフローは現在、PyPIのTrusted Publishing機能ではサポートされていないので
+    # https://docs.pypi.org/trusted-publishers/troubleshooting/#reusable-workflows-on-github
+    # こういう書き方しかできない
     name: Publish to PyPI
     runs-on: ubuntu-latest
     if: github.repository_owner == github.actor
@@ -27,10 +30,12 @@ jobs:
       contents: read
 
     steps:
-      - name: Build and publish package to TestPyPI
+      - name: Build package
         uses: heiwa4126/reusable-workflows/build-uv-package@9d6f143bd41d20ec98f777103d10b78339f4b1d7 # v0.0.2
         with:
           checkout: true
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+        with:
+          skip-existing: true
