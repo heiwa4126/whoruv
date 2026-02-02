@@ -12,9 +12,11 @@ concurrency:
 
 jobs:
   publish-testpypi:
-    # 再利用可能なワークフローは現在、PyPIのTrusted Publishing機能ではサポートされていないので
+    # 再利用可能なワークフローは現在、PyPIのTrusted Publishing機能ではサポートされていない。
     # https://docs.pypi.org/trusted-publishers/troubleshooting/#reusable-workflows-on-github
-    # こういう書き方しかできない
+    # そのうえ actions でも変な docker イメージを読もうとするので、
+    # こういう書き方しかできない。(2026-02)時々確認すること
+
     name: Publish to TestPyPI
     if: github.repository_owner == github.actor
     environment: testpypi
@@ -25,12 +27,12 @@ jobs:
 
     steps:
       - name: Build and publish package to TestPyPI
-        uses: heiwa4126/reusable-workflows/build-uv-package@v0.0.5
+        uses: heiwa4126/reusable-workflows/build-uv-package@4549f4cef81191ccd76d799ee23cc5a2d59cbc89 # v0.0.5
         with:
           checkout: true
 
-      # - name: Publish to TestPyPI
-      #   uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
-      #   with:
-      #     repository-url: https://test.pypi.org/legacy/
-      #     # attestations: true  # PEP740 attestations (enabled by default)
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          # attestations: true  # PEP740 attestations (enabled by default)

@@ -18,9 +18,10 @@ defaults:
 
 jobs:
   publish-pypi:
-    # 再利用可能なワークフローは現在、PyPIのTrusted Publishing機能ではサポートされていないので
+    # 再利用可能なワークフローは現在、PyPIのTrusted Publishing機能ではサポートされていない。
     # https://docs.pypi.org/trusted-publishers/troubleshooting/#reusable-workflows-on-github
-    # こういう書き方しかできない
+    # そのうえ actions でも変な docker イメージを読もうとするので、
+    # こういう書き方しかできない。
     name: Publish to PyPI
     runs-on: ubuntu-latest
     if: github.repository_owner == github.actor
@@ -37,5 +38,5 @@ jobs:
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
-        with:
-          skip-existing: true
+        # with:
+        #   skip-existing: true
