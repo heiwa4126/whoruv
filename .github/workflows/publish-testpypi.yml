@@ -16,7 +16,6 @@ jobs:
     # https://docs.pypi.org/trusted-publishers/troubleshooting/#reusable-workflows-on-github
     # そのうえ actions でも変な docker イメージを読もうとするので、
     # こういう書き方しかできない。(2026-02)時々確認すること
-
     name: Publish to TestPyPI
     if: github.repository_owner == github.actor
     environment: testpypi
@@ -27,7 +26,7 @@ jobs:
 
     steps:
       - name: Build and publish package to TestPyPI
-        uses: heiwa4126/reusable-workflows/build-uv-package@4549f4cef81191ccd76d799ee23cc5a2d59cbc89 # v0.0.5
+        uses: heiwa4126/reusable-workflows/build-uv-package@3a81d77b668105e8e3979c26fa68befcc3dfce6e # v0.0.11
         with:
           checkout: true
 

@@ -7,16 +7,11 @@ version = "0.0.9a1"
 # So use PEP 440 format from the beginning
 description = "Display Python version, executable path, and script path when run with uv"
 keywords = ["uv", "python", "version", "path", "tool"]
-classifiers = [
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3",
-]
+classifiers = ["Operating System :: OS Independent", "Programming Language :: Python :: 3"]
 readme = "README.md"
-license.file = "LICENSE"
-authors = [
-  { name = "heiwa4126", email = "heiwa4126@gmail.com" },
-]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "heiwa4126", email = "heiwa4126@gmail.com" }]
 requires-python = ">=3.9"
 
 dependencies = []
@@ -30,27 +25,21 @@ Source = "https://github.com/heiwa4126/whoruv"
 whoruv = "whoruv.__main__:main"
 
 [build-system]
-requires = ["uv_build>=0.8.17,<0.10.0"]
+requires = ["uv_build>=0.8.17,<0.12.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-  "bumpuv>=0.0.4",
-  "mypy>=1.18.1",
-  "pep440check>=0.0.1",
-  "poethepoet>=0.37.0",
-  "pytest>=8.4.2",
-  "ruff>=0.13.0",
-  "uv-secure>=0.10.1",
-  "validate-pyproject>=0.24.1",
+	"bumpuv>=0.0.4",
+	"mypy>=1.18.1",
+	"pep440check>=0.0.1",
+	"poethepoet>=0.37.0",
+	"pytest>=8.4.2",
+	"ruff>=0.13.0",
+	"uv-secure>=0.10.1",
+	"validate-pyproject>=0.24.1",
 ]
 
 [tool.uv.build-backend]
-source-exclude = [
-  "**/*_test.py",
-  "tests/**",
-]
-wheel-exclude = [
-  "**/*_test.py",
-  "tests/**",
-]
+source-exclude = ["**/*_test.py", "tests/**"]
+wheel-exclude = ["**/*_test.py", "tests/**"]
